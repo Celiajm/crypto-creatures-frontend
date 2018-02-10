@@ -1,40 +1,42 @@
 #196, 245, 191, 207, 137, 252, 152, 239, 170, 45, 1, 36, 48, 139, 97, 164, 229,
- #89, 89, 50, 152, 143, 149, 164, 155, 136, 12, 72, 197, 26, 55, 242
-
- #200-256 animal, 22 numbers
- #
+#89, 89, 50, 152, 143, 149, 164, 155, 136, 12, 72, 197, 26, 55, 242
+#200-256 animal, 22 numbers
+#
+import random
 
 class CoinGen:
 
  	def __init__(self, hashfn):
 
- 		self.item = which_item(hashfin[10])
+	 	def which_item(n, hashfn):
 
- 	def which_item(n):
+	 		# 101-220 animal
+		 	# 1-100 coin
+		 	#221-256 item
 
- 		# 101-220 animal
-	 	# 1-100 coin
-	 	#221-256 item
+	 		if (n <= 100):
+	 			print "I'm a Coin."
+	 			return (0, Coin())
+	 		elif (n <= 220):
+	 			print "I'm a Creature."
+	 			return (1, CoinCreature(hashfn))
+	 		else:
+	 			print "I'm an Item."
+	 			return (2, CoinItem(hashfn))
 
- 		if (n <= 100):
- 			return Coin()
- 		elif (n <= 220):
- 			return CoinCreature()
- 		else:
- 			return CoinItem()
-
+	 	self.item = which_item(hashfn[10], hashfn)
 
 class CoinCreature:
 
 	def __init__(self, hashfn):
 
-	 	self.animal_type =  animal_type(hashfn[11])
-	 	self.eye = eye_type(hashfn[12])
-	 	self.color_1 = color_picker(hashfn[13])
-	 	self.color_2 = color_picker(hashfn[14])
-	 	self.color_3 = color_picker(hashfn[15])
+	 	self.animal_type =  self.animal_type(hashfn[11])
+	 	self.eye = self.eye_type(hashfn[12])
+	 	self.color_1 = self.color_picker(hashfn[13])
+	 	self.color_2 = self.color_picker(hashfn[14])
+	 	self.color_3 = self.color_picker(hashfn[15])
 
-	def animal_type(n):
+	def animal_type(self, n):
 
 		if(n <= 75):
 			return "bear"
@@ -55,7 +57,7 @@ class CoinCreature:
 		else:
 			return "hedgehog"
 
-	def eye_type(n):
+	def eye_type(self, n):
 
 		if (n <= 100):
 			return "basic"
@@ -66,7 +68,7 @@ class CoinCreature:
 		else:
 			return "angry"
 
-	def color_picker(n):
+	def color_picker(self, n):
 
 		if (n <= 32):
 			return "purple"
@@ -96,13 +98,13 @@ class Coin:
 class CoinItem:
 
 	def __init__(self, hashfn):
-		self.item_type = type_picker(hashfn[20])
+		self.item_type = self.type_picker(hashfn[20])
 		self.item_name = 0
 
-	def type_picker(n):
+	def type_picker(self, n):
 		return "food"
 
-	def name_picker(n, item_type):
+	def name_picker(self, n, item_type):
 
 		if(item_type == "food"):
 			if(n <= 100):
@@ -111,3 +113,34 @@ class CoinItem:
 				return "cake"
 			else:
 				return "drumstick"
+
+def test(hashfn):
+
+	init_coin = CoinGen(hashfn)
+
+	item = init_coin.item
+
+	if item[0] == 1:
+		animal = item[1]
+		animal_string = "I'm a "
+		animal_string += str(animal.animal_type)
+		animal_string += " with "
+		animal_string += str(animal.eye)
+		animal_string += " eyes and "
+		animal_string += str(animal.color_1)
+		animal_string += " fur."
+		print animal_string
+
+	return 
+
+def gen_list():
+
+	rand_list = []
+
+	for i in range(32):
+		rand_list.append(random.randint(1,256))
+
+	return rand_list
+
+test(gen_list())
+
