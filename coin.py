@@ -4,7 +4,7 @@
  #200-256 animal, 22 numbers
  #
 
- class CoinGen:
+class CoinGen:
 
  	def __init__(self, hashfn):
 
@@ -97,7 +97,7 @@ class CoinItem:
 
 	def __init__(self, hashfn):
 		self.item_type = type_picker(hashfn[20])
-		self.item_name = 
+		self.item_name = 0
 
 	def type_picker(n):
 		return "food"
