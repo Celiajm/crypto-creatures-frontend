@@ -3,48 +3,19 @@
   <title>Token</title>
     <link rel="stylesheet" type="text/css" href="/static/master.css">
   </head>
-  <style>
-    .grid-container {
-        display: grid;
-        grid-column-gap: 50px;
-        background-color: Tomato;
-        grid-template-columns: auto auto auto;
-        padding-left: 10px;
-    }
-    .grid-item {
-        background-color: Cyan;
-        border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        font-size: 30px;
-        text-align: center;
-    }
-  </style>
-  <script>
 
-  </script>
-  <body>
+  <body background = "/static/sakura.png">
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/templates/about-us.html">About</a></li>
+    </ul>
     <h1>CryptoCreatures</h1>
-
     <p>
     {% if coin[0] == 1 %}
       Animal type: {{ coin[1].animal_type }}
       <img src= "{{ url_for( 'static', filename=coin[1].image) }}" />
       Test
-<!--       {% if coin[1].animal_type == "bunny" %}
-        <img src="/static/new_bunny.svg" />
-      {% elif coin[1].animal_type == "bear" %}
-        <img src="/static/new_bear.svg" />
-      {% elif coin[1].animal_type == "dalmatian" %}
-        <img src="/static/new_dalmatian.svg" />
-      {% elif coin[1].animal_type == "deer" %}
-        <img src="/static/new_deer.svg" />
-      {% elif coin[1].animal_type == "fox" %}
-        <img src="/static/new_fox.svg" />
-      {% elif coin[1].animal_type == "hedgehog" %}
-        <img src="/static/new_hedgehog.svg" />
-      {% elif coin[1].animal_type == "panda" %}
-        <img src="/static/new_panda.svg" />
-      {% endif %} -->
     {% else %}
       Coin!
     {% endif %}

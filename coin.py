@@ -176,6 +176,10 @@ def space_index():
 def serve_static_files(path):
     return send_from_directory('static', path)
 
+@app.route("/templates/about-us.html")
+def about_us_page():
+    return flask.render_template("about-us.html", coin=None)
+
 def rgb_to_color(color):
 
     r = color[0]
@@ -200,7 +204,7 @@ def replace(fname, creature, hash_number):
     content = content.replace('#725af7', hc2)
     content = content.replace('#6edaf4', hc3)
     f.close()
-    
+
     new_f = open('static/generated/'+fname+str(hash_number)+".svg", 'w')
 
     new_f.write(content)
