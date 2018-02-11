@@ -1,6 +1,6 @@
 <html>
   <head>
-  <title>Token</title>
+  <title>CryptoCreatures</title>
     <link rel="stylesheet" type="text/css" href="/static/master.css">
   </head>
   <script>
@@ -13,13 +13,13 @@
         <li><a href="/templates/about-us.html">About</a></li>
     </ul>
     <h1>CryptoCreatures</h1>
-    <h2>Where Cryptocurrency Meets Animal Trading Cards</h2>
+    <h3>Where Cryptocurrency Meets Animal Trading Cards</h3>
     <div class="grid-container">
         <h3>Your Creatures</h3>
       {% for animal in animals %}
       <a href="/token/{{ animal.sha }}">
           <div class="grid-item">
-            <p>{{ animal }}</p>
+              <!-- <p>{{ animal }}</p> -->
             <img src= "{{ url_for( 'static', filename=animal.image) }}" />
           </div>
         </a>
