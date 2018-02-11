@@ -3,6 +3,13 @@ h1, h2, h3 {
     color: Black;
     text-align: center;
 }
+
+h4 {
+    font-family: 'Lato', sans-serif;
+    color: Black;
+    text-align: left;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   width: 80%;
