@@ -28,7 +28,7 @@
       {% for animal in animals %}
       <a href="/token/{{ animal.sha }}">
           <div class="grid-item">
-            <img src= "{{ url_for( 'static', filename=animal.image) }}" />
+            <img class='{{animal.animal_type}}' src= "{{ url_for( 'static', filename=animal.image) }}" />
           </div>
         </a>
       {% endfor %}

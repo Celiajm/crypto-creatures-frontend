@@ -5,6 +5,45 @@
 import random
 import flask
 
+all_animals = [
+    'Angry_bear',
+    'Angry_bunny',
+    'Angry_dalmation',
+    'Angry_deer',
+    'Angry_fox',
+    'Angry_hedgehog',
+    'Angry_octopus',
+    'Angry_panda',
+    'Angry_squirrel',
+    'Basic_bear',
+    'Basic_bunny',
+    'Basic_dalmation',
+    'Basic_deer',
+    'Basic_fox',
+    'Basic_hedgehog',
+    'Basic_octopus',
+    'Basic_panda',
+    'Basic_Squirrel',
+    'Crazy_bear',
+    'Crazy_bunny',
+    'Crazy_dalamtion',
+    'Crazy_deer',
+    'Crazy_fox',
+    'Crazy_hedgehog',
+    'Crazy_octopus',
+    'Crazy_panda',
+    'Crazy_squirrel',
+    'Cute_bear',
+    'Cute_bunny',
+    'Cute_dalmation',
+    'Cute_deer',
+    'Cute_fox',
+    'Cute_hedgehog',
+    'Cute_octopus',
+    'Cute_panda',
+    'Cute_squirrel',
+    ]
+
 class CoinGen:
 
  	def __init__(self, hashfn, sha):
@@ -41,25 +80,27 @@ class CoinCreature:
                 self.sha = sha
 
 	def animal_type(self, n):
+            return all_animals[n % len(all_animals)]
+            # return 
 
-		if(n <= 75):
-			return "Bear"
-		elif(n <= 110):
-			return "Bunny"
-		# elif(n <= 140):
-		# 	return "Squirrel"
-		elif(n <= 160):
-			return "Fox"
-		elif(n <= 180):
-			return "Panda"
-		elif(n <= 200):
-			return "Deer"
-		elif(n <= 220):
-			return "Dalmatian"
-		# elif(n <= 253):
-		# 	return "Octopus"
-		else:
-			return "Hedgehog"
+		# if(n <= 75):
+			# return "Bear"
+		# elif(n <= 110):
+			# return "Bunny"
+		# # elif(n <= 140):
+		# # 	return "Squirrel"
+		# elif(n <= 160):
+			# return "Fox"
+		# elif(n <= 180):
+			# return "Panda"
+		# elif(n <= 200):
+			# return "Deer"
+		# elif(n <= 220):
+			# return "Dalmatian"
+		# # elif(n <= 253):
+		# # 	return "Octopus"
+		# else:
+			# return "Hedgehog"
 
 	def eye_type(self, n):
 
@@ -203,9 +244,9 @@ def replace(fname, creature, hash_number):
     color3 = creature.color_3
     hc3 = 'rgb(' + str(color3[0]) + ',' +  str(color3[1]) + ',' + str(color3[2]) + ')'
 
-    content = content.replace('#BEBEBE', hc1)
-    content = content.replace('#725AF7', hc2)
-    content = content.replace('#6EDAF4', hc3)
+    content = content.replace('#bebebe', hc1)
+    content = content.replace('#725af7', hc2)
+    content = content.replace('#6edaf4', hc3)
     f.close()
 
     new_f = open('static/generated/'+fname+str(hash_number)+".svg", 'w')
