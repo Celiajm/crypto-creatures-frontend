@@ -3,6 +3,7 @@
 #200-256 animal, 22 numbers
 #
 import random
+import flask
 
 class CoinGen:
 
@@ -143,5 +144,19 @@ def gen_list():
 
 	return rand_list
 
-test(gen_list())
+# test(gen_list())
+
+app = flask.Flask(__name__)
+
+@app.route('/token/<sha>')
+def show_token(sha=None):
+    coin = CoinGen(sha).item
+    return flask.render_template("token.html", coin=coin)
+
+
+@app.route('/static/<path:path>')
+def serve_static_files(path):
+    return send_from_directory('static', path)
+
+
 

@@ -1,0 +1,13 @@
+body {
+  font-family: sans-serif;
+  width: 80%;
+  padding-top:30px;
+  padding-bottom:30px;
+  font-size: 22px;
+  margin: auto;
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
