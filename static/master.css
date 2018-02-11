@@ -23,6 +23,27 @@ img {
   position: relative;
   left: -50%;
 }
+.image-page{
+  background: black;
+}
+
+.image-page img {
+  width: 200%;
+  height: 200%;
+  position:relative;
+  top: -60%;
+  text-align: center;
+  z-index: -1;
+}
+.image-page p, .image-page h1 {
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+.image-page h1 {
+  position: relative;
+  top: 150px;
+  font-size:70px;
+}
 
 .grid-container img {
     grid-column-gap: 100px;

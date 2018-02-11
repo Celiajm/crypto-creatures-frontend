@@ -4,18 +4,17 @@
     <link rel="stylesheet" type="text/css" href="/static/master.css">
   </head>
 
-  <body background = "/static/sakura.png">
-    <ul>
-        <li><a class="active" href="/">Home</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="/templates/about-us.html">About</a></li>
-    </ul>
+  <body class='image-page'>
+    <!-- <ul> -->
+    <!--     <li><a class="active" href="/">Home</a></li> -->
+    <!--     <li><a href="#contact">Contact</a></li> -->
+    <!--     <li><a href="/templates/about-us.html">About</a></li> -->
+    <!-- </ul> -->
     <h1>CryptoCreatures</h1>
     <p>
     {% if coin[0] == 1 %}
       Animal type: {{ coin[1].animal_type }}
       <img src= "{{ url_for( 'static', filename=coin[1].image) }}" />
-      Test
     {% else %}
       Coin!
     {% endif %}
