@@ -44,6 +44,7 @@ p {
   color: white;
   padding: 20px;
   font-size: 30px;
+  z-index: 30;
 }
 
 .image-page img {
@@ -53,6 +54,8 @@ p {
   top: -400px;
   left: -75%;
   text-align: center;
+  z-index:20;
+  opacity: 0.5;
 }
 .image-page p, .image-page h1 {
   color: white;
