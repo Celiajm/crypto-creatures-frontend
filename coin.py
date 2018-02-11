@@ -153,6 +153,12 @@ app = flask.Flask(__name__)
 def show_token(sha=None):
 	byte_list = sha_to_list(sha)
 	coin = CoinGen(byte_list, sha).item
+
+	#List of colors
+	color_list = ['#d3f6f0','#92e4d6','#5fd1be','#38bfa9','#12b499',
+	'#fff2db','#ffdfa4','#ffce75','#ffc04b','#ffaf1a','#fedadd','#fda2a9',
+	'#fg737d','#fb4a57','#fa192a']
+
 	print(coin[0])
 	if(coin[0] == 1):
 		replace(coin[1].animal_type, coin[1], sha)
