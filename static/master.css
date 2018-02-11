@@ -24,6 +24,11 @@ p {
     color: Black;
 }
 
+.maincoin {
+  width: 300px;
+  margin-left: calc(50% - 150px);
+}
+
 
 .grid-item img:hover {
   transform: rotate(7deg);
