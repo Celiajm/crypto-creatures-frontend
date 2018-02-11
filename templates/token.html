@@ -1,4 +1,4 @@
-<html>
+<html class='image-page'>
   <head>
   <title>CryptoCreatures</title>
     <link rel="stylesheet" type="text/css" href="/static/master.css">
@@ -13,6 +13,9 @@
     <p>
     {% if coin[0] == 1 %}
       Animal type: {{ coin[1].animal_type }}
+      <p class='bio'>
+      {{ coin[1].bio }}
+      </p>
       <img src= "{{ url_for( 'static', filename=coin[1].image) }}" />
     {% else %}
       Coin!

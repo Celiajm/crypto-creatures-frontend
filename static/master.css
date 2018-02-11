@@ -39,13 +39,20 @@ p {
   left: -50px;
 }
 
+.bio {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  font-size: 30px;
+}
+
 .image-page img {
   width: 200%;
   height: 200%;
   position:relative;
-  top: -60%;
+  top: -400px;
+  left: -75%;
   text-align: center;
-  z-index: -1;
 }
 .image-page p, .image-page h1 {
   color: white;
@@ -53,7 +60,6 @@ p {
 }
 .image-page h1 {
   position: relative;
-  top: 150px;
   font-size:70px;
 }
 

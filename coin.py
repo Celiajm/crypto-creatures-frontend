@@ -78,6 +78,47 @@ class CoinCreature:
 	 	self.color_3 = (hashfn[19]/2+128,hashfn[20]/2+128,hashfn[21]/2+128)
                 self.image = "generated/" + self.animal_type + str(sha) + ".svg"
                 self.sha = sha
+                
+
+                if "bunny" in self.animal_type:
+                    self.bio = """
+                    Keep an eye on your files if you get the bunny . . . and your loved ones for that matter. The bunny is a cute addition to anyone's creature collection, but a bunny with angry eyes is clearly a serial killer?
+                    """
+                elif "octopus" in self.animal_type:
+                    self.bio = """
+                     This slimyboi will be the most rarest of all your CryptoCreatures for his artisanally hand-beaded suckers. With only a 0.019% chance of discovering him on any given block, you better hold onto him when you find him!
+                    """
+                elif "fox" in self.animal_type:
+                    self.bio = """
+                     Cunning and sly, he will fetch you a handsome price at market!
+                    """
+                elif "hedgehog" in self.animal_type:
+                    self.bio = """
+                    The hedgehog is also a sneakyboi, so you may have a hard time finding him too. However, he's also one of our cutest creatures!
+
+                    """
+                elif "panda" in self.animal_type:
+                    self.bio = """
+                    Even though he's almost extinct in real life, the panda is alive and well in the bamboo forests of you PC! Mine for him and hope you get the angry eyes--they're the cutest!
+                    """
+                elif "dalmatian" in self.animal_type:
+                    self.bio = """
+                    Arf Arf! Any resemblance to Cupcakke's "Doggystyle" is purely coincidental.
+                    """
+                elif "deer" in self.animal_type:
+                    self.bio = """
+                     Sensational! The deer is adorable!
+                    """
+                elif "squirrel" in self.animal_type:
+                    self.bio = """
+                    Chomp chomp! Better protect you nutz if you find this guy in your next block! He's not too rare, but the right item can make his worth a lot of CreatureCoins!
+                    """
+                elif "bear" in self.animal_type:
+                    self.bio = """
+                    This is not a gay person or that thing from the Revenant--so you should NOT be afraid to mine for this cute and cuddly animal.
+                    """
+                else:
+                    self.bio = "This one is totally new!!!"
 
 	def animal_type(self, n):
             return all_animals[n % len(all_animals)]
