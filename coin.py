@@ -43,34 +43,34 @@ class CoinCreature:
 	def animal_type(self, n):
 
 		if(n <= 75):
-			return "bear"
+			return "Bear"
 		elif(n <= 110):
-			return "bunny"
+			return "Bunny"
 		# elif(n <= 140):
-		# 	return "squirrel"
+		# 	return "Squirrel"
 		elif(n <= 160):
-			return "fox"
+			return "Fox"
 		elif(n <= 180):
-			return "panda"
+			return "Panda"
 		elif(n <= 200):
-			return "deer"
+			return "Deer"
 		elif(n <= 220):
-			return "dalmatian"
+			return "Dalmatian"
 		# elif(n <= 253):
-		# 	return "octopus"
+		# 	return "Octopus"
 		else:
-			return "hedgehog"
+			return "Hedgehog"
 
 	def eye_type(self, n):
 
 		if (n <= 100):
-			return "basic"
+			return "Basic"
 		elif(n <= 200):
-			return "cute"
+			return "Cute"
 		elif(n <= 255):
-			return "crazy"
+			return "Crazy"
 		else:
-			return "angry"
+			return "Angry"
 
 class Coin:
 
@@ -153,6 +153,17 @@ app = flask.Flask(__name__)
 def show_token(sha=None):
 	byte_list = sha_to_list(sha)
 	coin = CoinGen(byte_list, sha).item
+
+	#List of colors
+	color_list = ['#d3f6f0','#92e4d6','#5fd1be','#38bfa9','#12b499',
+	'#fff2db','#ffdfa4','#ffce75','#ffc04b','#ffaf1a','#fedadd','#fda2a9',
+	'#fg737d','#fb4a57','#fa192a']
+
+	items = ["Cake.svg", "Drumstick.svg","Ice_cream.svg"]
+	item_len = len(items)
+	for i in range(0, item_len):
+		items[i] = "/static/" + items[i]
+
 	print(coin[0])
 	if(coin[0] == 1):
 		replace(coin[1].animal_type, coin[1], sha)
@@ -180,14 +191,6 @@ def serve_static_files(path):
 def about_us_page():
     return flask.render_template("about-us.html", coin=None)
 
-def rgb_to_color(color):
-
-    r = color[0]
-    g = color[1]
-    b = color[2]
-    rgb = (r<<16) + (g<<8) + b
-    return rgb
-
 def replace(fname, creature, hash_number):
 
     f = open('static/' + fname + ".svg", 'r')
@@ -200,9 +203,9 @@ def replace(fname, creature, hash_number):
     color3 = creature.color_3
     hc3 = 'rgb(' + str(color3[0]) + ',' +  str(color3[1]) + ',' + str(color3[2]) + ')'
 
-    content = content.replace('#bebebe', hc1)
-    content = content.replace('#725af7', hc2)
-    content = content.replace('#6edaf4', hc3)
+    content = content.replace('#BEBEBE', hc1)
+    content = content.replace('#725AF7', hc2)
+    content = content.replace('#6EDAF4', hc3)
     f.close()
 
     new_f = open('static/generated/'+fname+str(hash_number)+".svg", 'w')

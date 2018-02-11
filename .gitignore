@@ -1,1 +1,4 @@
-static/generated
+static/generated/*
+coin.pyc
+*.swp
+

@@ -1,29 +1,49 @@
 <html>
   <head>
-  <title>Token</title>
+  <title>CryptoCreatures</title>
     <link rel="stylesheet" type="text/css" href="/static/master.css">
   </head>
-  <script>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <script type='js'>
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   </script>
   <body background = "/static/congruent_pentagon.png">
     <ul>
         <li><a class="active" href="/">Home</a></li>
-        <li><a href="#contact">Contact</a></li>
         <li><a href="/templates/about-us.html">About</a></li>
     </ul>
     <h1>CryptoCreatures</h1>
-    <h2>Where Cryptocurrency Meets Animal Trading Cards</h2>
+    <h3>Where Cryptocurrency Meets Animal Trading Cards</h3>
     <div class="grid-container">
         <h3>Your Creatures</h3>
       {% for animal in animals %}
       <a href="/token/{{ animal.sha }}">
           <div class="grid-item">
-            <p>{{ animal }}</p>
             <img src= "{{ url_for( 'static', filename=animal.image) }}" />
           </div>
         </a>
       {% endfor %}
+    </div>
+    <div class="grid-container">
+        <h3>Your Items</h3>
+        <div class="grid-item">
+            <img src = "static/Cake.svg"/>
+        </div>
+        <div class="grid-item">
+            <img src = "static/Drumstick.svg"/>
+        </div>
+        <div class="grid-item">
+            <img src = "static/Ice_cream.svg"/>
+        </div>
     </div>
   </body>
 </html>
