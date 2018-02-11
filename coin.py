@@ -26,6 +26,8 @@ class CoinGen:
 	 			return (2, CoinItem(hashfn))
 
 	 	self.item = which_item(hashfn[10], hashfn)
+	 	print hashfn
+	 	print hashfn[10]
 
 # octopus is now the most rare
 class CoinCreature:
@@ -135,13 +137,24 @@ def gen_list():
 
 # test(gen_list())
 
+def sha_to_list(sha):
+
+	byte_list = []
+
+	for i in range(32):
+		byte_list.append(int("0x"+sha[:2],0))
+		sha = sha[2:]
+
+	return byte_list
+
 app = flask.Flask(__name__)
 
 @app.route('/token/<sha>')
 def show_token(sha=None):
-    coin = CoinGen(sha).item
-    print coin[0]
-    return flask.render_template("token.html", coin=coin)
+	byte_list = sha_to_list(sha)
+	coin = CoinGen(byte_list).item
+	print coin[0]
+	return flask.render_template("token.html", coin=coin)
 
 
 @app.route('/static/<path:path>')
