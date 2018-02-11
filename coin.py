@@ -161,7 +161,7 @@ def show_token(sha=None):
 
 @app.route("/")
 def space_index():
-    coin = CoinGen(gen_list()).item
+    coin = CoinGen(gen_list(),sha=None).item
     return flask.render_template("index.html", coin=coin)
 
 @app.route('/static/<path:path>')
