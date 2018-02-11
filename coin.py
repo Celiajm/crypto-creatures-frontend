@@ -43,34 +43,34 @@ class CoinCreature:
 	def animal_type(self, n):
 
 		if(n <= 75):
-			return "bear"
+			return "Bear"
 		elif(n <= 110):
-			return "bunny"
+			return "Bunny"
 		# elif(n <= 140):
-		# 	return "squirrel"
+		# 	return "Squirrel"
 		elif(n <= 160):
-			return "fox"
+			return "Fox"
 		elif(n <= 180):
-			return "panda"
+			return "Panda"
 		elif(n <= 200):
-			return "deer"
+			return "Deer"
 		elif(n <= 220):
-			return "dalmatian"
+			return "Dalmatian"
 		# elif(n <= 253):
-		# 	return "octopus"
+		# 	return "Octopus"
 		else:
-			return "hedgehog"
+			return "Hedgehog"
 
 	def eye_type(self, n):
 
 		if (n <= 100):
-			return "basic"
+			return "Basic"
 		elif(n <= 200):
-			return "cute"
+			return "Cute"
 		elif(n <= 255):
-			return "crazy"
+			return "Crazy"
 		else:
-			return "angry"
+			return "Angry"
 
 class Coin:
 
