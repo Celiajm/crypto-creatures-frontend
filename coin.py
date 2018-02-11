@@ -3,7 +3,7 @@
 #200-256 animal, 22 numbers
 #
 import random
-import flask 
+import flask
 
 class CoinGen:
 
@@ -124,7 +124,7 @@ def test(hashfn):
         item_string += "."
         print(item_string)
 
-	return 
+	return
 
 def gen_list():
 
@@ -158,6 +158,10 @@ def show_token(sha=None):
 		replace(coin[1].animal_type + ".svg", coin[1])
 	return flask.render_template("token.html", coin=coin)
 
+@app.route("/")
+def space_index():
+    coin = CoinGen(gen_list()).item
+    return flask.render_template("index.html", coin=coin)
 
 @app.route('/static/<path:path>')
 def serve_static_files(path):
@@ -186,12 +190,12 @@ def replace(fname, creature):
     print hc1
     print hc2
     print hc3
-    
+
     content = content.replace('#bebebe', hc1)
     content = content.replace('#725af7', hc2)
     content = content.replace('#6edaf4', hc3)
     f.close()
-    
+
     new_f = open('static/new_'+fname, 'w')
     new_f.write(content)
     new_f.close()

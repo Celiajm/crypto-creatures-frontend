@@ -1,12 +1,8 @@
-h1 {
+h1, h2 {
     font-family: sans-serif;
     color: Tomato;
     text-align: center;
-}
-h2 {
-    font-family: sans-serif;
-    color: Tomato;
-    text-align: center;
+    background-color: Cyan;
 }
 body {
   font-family: sans-serif;
@@ -15,9 +11,38 @@ body {
   padding-bottom:30px;
   font-size: 22px;
   margin: auto;
+  background-color: Tomato;
 }
 
 img {
   max-width: 50vw;
   max-height: 80vh;
+}
+/*
+.grid-container {
+    display: grid;
+    grid-column-gap: 50px;
+    background-color: Tomato;
+    grid-template-columns: auto auto auto;
+    padding-left: 10px;
+}
+.grid-item {
+    background-color: Cyan;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    width: 200px;
+}*/
+
+.grid-container {
+    grid-column-gap: 50px;
+    background-color: Tomato;
+    text-align: center;
+}
+
+.grid-item {
+    background-color: Cyan;
+    display: inline-block;
+    width: 20%;
 }
