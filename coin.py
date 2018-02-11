@@ -83,11 +83,13 @@ class CoinCreature:
 
                 if "bunny" in self.animal_type:
                     self.bio = """
-                    Keep an eye on your files if you get the bunny . . . and your loved ones for that matter. The bunny is a cute addition to anyone's creature collection, but a bunny with angry eyes is clearly a serial killer?
+                    Keep an eye on your files if you get the bunny . . . and your loved ones for that matter. The bunny is a cute addition to anyone's creature collection, but a bunny with angry eyes is clearly a serial killer!
                     """
                 elif "octopus" in self.animal_type:
                     self.bio = """
                      This slimyboi will be the most rarest of all your CryptoCreatures for his artisanally hand-beaded suckers. With only a 0.019% chance of discovering him on any given block, you better hold onto him when you find him!
+
+                     Fun fact: It's also the biggest animal you'll find on the network!
                     """
                 elif "fox" in self.animal_type:
                     self.bio = """
@@ -100,7 +102,7 @@ class CoinCreature:
                     """
                 elif "panda" in self.animal_type:
                     self.bio = """
-                    Even though he's almost extinct in real life, the panda is alive and well in the bamboo forests of you PC! Mine for him and hope you get the angry eyes--they're the cutest!
+                    Even though he's almost extinct in real life, the panda is alive and well in the bamboo forests of your PC! Mine for him and hope you get the angry eyes--they're the cutest!
                     """
                 elif "dalmatian" in self.animal_type:
                     self.bio = """

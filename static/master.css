@@ -29,6 +29,10 @@ p {
   margin-left: calc(50% - 150px);
 }
 
+.grid-item {
+  position: relative;
+}
+
 
 .grid-item img:hover {
   transform: rotate(7deg);
@@ -39,9 +43,14 @@ p {
 }
 
 .Angry_octopus, .Basic_octopus, .Cute_octopus, .Crazy_octopus {
-  width: 300px !important;
-  position: relative;
+  position: absolute;
   left: -50px;
+  top: 0px;
+  width:300px !important;
+  height:300px !important;
+
+  max-width:800% !important;
+  max-height:800% !important;
 }
 
 .bio {
@@ -67,7 +76,7 @@ p {
   text-shadow: 0px 0px 5px black;
 }
 .image-page h1 {
-  position: relative;
+  pwidthosition: relative;
   font-size:70px;
 }
 
