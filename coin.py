@@ -15,10 +15,10 @@ class CoinGen:
 		 	# 1-100 coin
 		 	#221-256 item
 
-	 		if (n <= 100):
+	 		if (n <= 0):
 	 			print("I'm a Coin.")
 	 			return (0, Coin())
-	 		elif (n <= 220):
+	 		elif (n <= 256):
 	 			print("I'm a Creature.")
 	 			return (1, CoinCreature(hashfn))
 	 		else:
@@ -36,9 +36,9 @@ class CoinCreature:
 
 	 	self.animal_type =  self.animal_type(hashfn[11])
 	 	self.eye = self.eye_type(hashfn[12])
-	 	self.color_1 = (hashfn[13],hashfn[14],hashfn[15])
-	 	self.color_2 = (hashfn[16],hashfn[17],hashfn[18])
-	 	self.color_3 = (hashfn[19],hashfn[20],hashfn[21])
+	 	self.color_1 = (hashfn[13]/2+128,hashfn[14]/2+128,hashfn[15]/2+128)
+	 	self.color_2 = (hashfn[16]/2+128,hashfn[17]/2+128,hashfn[18]/2+128)
+	 	self.color_3 = (hashfn[19]/2+128,hashfn[20]/2+128,hashfn[21]/2+128)
 
 	def animal_type(self, n):
 
@@ -55,7 +55,7 @@ class CoinCreature:
 		elif(n <= 200):
 			return "deer"
 		elif(n <= 220):
-			return "dalmation"
+			return "dalmatian"
 		elif(n <= 253):
 			return "hedgehog"
 		else:
@@ -154,6 +154,8 @@ def show_token(sha=None):
 	byte_list = sha_to_list(sha)
 	coin = CoinGen(byte_list).item
 	print(coin[0])
+	if(coin[0] == 1):
+		replace(coin[1].animal_type + ".svg", coin[1])
 	return flask.render_template("token.html", coin=coin)
 
 
@@ -161,20 +163,35 @@ def show_token(sha=None):
 def serve_static_files(path):
     return send_from_directory('static', path)
 
-def replace(fname):
+def rgb_to_color(color):
 
-    f = open(fname, 'r')
+    r = color[0]
+    g = color[1]
+    b = color[2]
+    rgb = (r<<16) + (g<<8) + b
+    return rgb
+
+def replace(fname, creature):
+
+    f = open('static/' + fname, 'r')
     content = f.read()
+
+    color1 = creature.color_1
+    hc1 = 'rgb(' + str(color1[0]) + ',' +  str(color1[1]) + ',' + str(color1[2]) + ')'
+    color2 = creature.color_2
+    hc2 = 'rgb(' + str(color2[0]) + ',' +  str(color2[1]) + ',' + str(color2[2]) + ')'
+    color3 = creature.color_3
+    hc3 = 'rgb(' + str(color3[0]) + ',' +  str(color3[1]) + ',' + str(color3[2]) + ')'
+
+    print hc1
+    print hc2
+    print hc3
     
-    color1 = (hashfn[13],hashfn[14],hashfn[15])
-    color2= (hashfn[16],hashfn[17],hashfn[18])
-    color3= (hashfn[19],hashfn[20],hashfn[21])
-    
-    content = content.replace('#bebebe', color1)
-    content = content.replace('#725af7', color3)
-    content = content.replace('#6edaf4', color2)
+    content = content.replace('#bebebe', hc1)
+    content = content.replace('#725af7', hc2)
+    content = content.replace('#6edaf4', hc3)
     f.close()
     
-    new_f = open('new_'+fname, 'w')
+    new_f = open('static/new_'+fname, 'w')
     new_f.write(content)
     new_f.close()

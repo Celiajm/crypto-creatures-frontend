@@ -8,6 +8,6 @@ body {
 }
 
 img {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 50vw;
+  max-height: 80vh;
 }
