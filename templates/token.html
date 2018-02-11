@@ -39,7 +39,9 @@
     <p>
     {% if coin[0] == 1 %}
       Animal type: {{ coin[1].animal_type }}
-      {% if coin[1].animal_type == "bunny" %}
+      <img src= "{{ url_for( 'static', filename=coin[1].image) }}" />
+      Test
+<!--       {% if coin[1].animal_type == "bunny" %}
         <img src="/static/new_bunny.svg" />
       {% elif coin[1].animal_type == "bear" %}
         <img src="/static/new_bear.svg" />
@@ -53,7 +55,7 @@
         <img src="/static/new_hedgehog.svg" />
       {% elif coin[1].animal_type == "panda" %}
         <img src="/static/new_panda.svg" />
-      {% endif %}
+      {% endif %} -->
     {% else %}
       Coin!
     {% endif %}

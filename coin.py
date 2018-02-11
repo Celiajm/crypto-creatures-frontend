@@ -7,9 +7,9 @@ import flask
 
 class CoinGen:
 
- 	def __init__(self, hashfn):
+ 	def __init__(self, hashfn, sha):
 
-	 	def which_item(n, hashfn):
+	 	def which_item(n, hashfn, sha):
 
 	 		# 101-220 animal
 		 	# 1-100 coin
@@ -20,25 +20,24 @@ class CoinGen:
 	 			return (0, Coin())
 	 		elif (n <= 256):
 	 			print("I'm a Creature.")
-	 			return (1, CoinCreature(hashfn))
+	 			return (1, CoinCreature(hashfn, sha))
 	 		else:
 	 			print("I'm an Item.")
 	 			return (2, CoinItem(hashfn))
 
-	 	self.item = which_item(hashfn[10], hashfn)
-	 	print(hashfn)
-	 	print(hashfn[10])
+	 	self.item = which_item(hashfn[10], hashfn, sha)
 
 # octopus is now the most rare
 class CoinCreature:
 
-	def __init__(self, hashfn):
+	def __init__(self, hashfn, sha):
 
 	 	self.animal_type =  self.animal_type(hashfn[11])
 	 	self.eye = self.eye_type(hashfn[12])
 	 	self.color_1 = (hashfn[13]/2+128,hashfn[14]/2+128,hashfn[15]/2+128)
 	 	self.color_2 = (hashfn[16]/2+128,hashfn[17]/2+128,hashfn[18]/2+128)
 	 	self.color_3 = (hashfn[19]/2+128,hashfn[20]/2+128,hashfn[21]/2+128)
+	 	self.image = self.animal_type + str(sha) + ".svg"
 
 	def animal_type(self, n):
 
@@ -96,9 +95,9 @@ class CoinItem:
 			else:
 				return "drumstick"
 
-def test(hashfn):
+def test(hashfn ,sha):
 
-	init_coin = CoinGen(hashfn)
+	init_coin = CoinGen(hashfn, sha)
 
 	item = init_coin.item
 
@@ -152,10 +151,12 @@ app = flask.Flask(__name__)
 @app.route('/token/<sha>')
 def show_token(sha=None):
 	byte_list = sha_to_list(sha)
-	coin = CoinGen(byte_list).item
+	coin = CoinGen(byte_list, sha).item
 	print(coin[0])
 	if(coin[0] == 1):
-		replace(coin[1].animal_type + ".svg", coin[1])
+		replace(coin[1].animal_type, coin[1], sha)
+		print coin[1].image
+	file_name = 'static/' + coin[1].animal_type + str(sha) + ".svg"
 	return flask.render_template("token.html", coin=coin)
 
 
@@ -171,9 +172,9 @@ def rgb_to_color(color):
     rgb = (r<<16) + (g<<8) + b
     return rgb
 
-def replace(fname, creature):
+def replace(fname, creature, hash_number):
 
-    f = open('static/' + fname, 'r')
+    f = open('static/' + fname + ".svg", 'r')
     content = f.read()
 
     color1 = creature.color_1
@@ -182,16 +183,12 @@ def replace(fname, creature):
     hc2 = 'rgb(' + str(color2[0]) + ',' +  str(color2[1]) + ',' + str(color2[2]) + ')'
     color3 = creature.color_3
     hc3 = 'rgb(' + str(color3[0]) + ',' +  str(color3[1]) + ',' + str(color3[2]) + ')'
-
-    print hc1
-    print hc2
-    print hc3
     
     content = content.replace('#bebebe', hc1)
     content = content.replace('#725af7', hc2)
     content = content.replace('#6edaf4', hc3)
     f.close()
     
-    new_f = open('static/new_'+fname, 'w')
+    new_f = open('static/'+fname+str(hash_number)+".svg", 'w')
     new_f.write(content)
     new_f.close()
