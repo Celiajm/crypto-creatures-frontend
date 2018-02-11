@@ -3,7 +3,7 @@
 #200-256 animal, 22 numbers
 #
 import random
-import flask 
+import flask
 
 class CoinGen:
 
@@ -123,7 +123,7 @@ def test(hashfn ,sha):
         item_string += "."
         print(item_string)
 
-	return 
+	return
 
 def gen_list():
 
@@ -159,6 +159,10 @@ def show_token(sha=None):
 	file_name = 'static/' + coin[1].animal_type + str(sha) + ".svg"
 	return flask.render_template("token.html", coin=coin)
 
+@app.route("/")
+def space_index():
+    coin = CoinGen(gen_list()).item
+    return flask.render_template("index.html", coin=coin)
 
 @app.route('/static/<path:path>')
 def serve_static_files(path):
@@ -183,12 +187,25 @@ def replace(fname, creature, hash_number):
     hc2 = 'rgb(' + str(color2[0]) + ',' +  str(color2[1]) + ',' + str(color2[2]) + ')'
     color3 = creature.color_3
     hc3 = 'rgb(' + str(color3[0]) + ',' +  str(color3[1]) + ',' + str(color3[2]) + ')'
+<<<<<<< HEAD
     
+=======
+
+    print hc1
+    print hc2
+    print hc3
+
+>>>>>>> 3b897cc3686bb182543e7bc0ba4ef716a46a9599
     content = content.replace('#bebebe', hc1)
     content = content.replace('#725af7', hc2)
     content = content.replace('#6edaf4', hc3)
     f.close()
+<<<<<<< HEAD
     
     new_f = open('static/'+fname+str(hash_number)+".svg", 'w')
+=======
+
+    new_f = open('static/new_'+fname, 'w')
+>>>>>>> 3b897cc3686bb182543e7bc0ba4ef716a46a9599
     new_f.write(content)
     new_f.close()
