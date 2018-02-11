@@ -180,14 +180,6 @@ def serve_static_files(path):
 def about_us_page():
     return flask.render_template("about-us.html", coin=None)
 
-def rgb_to_color(color):
-
-    r = color[0]
-    g = color[1]
-    b = color[2]
-    rgb = (r<<16) + (g<<8) + b
-    return rgb
-
 def replace(fname, creature, hash_number):
 
     f = open('static/' + fname + ".svg", 'r')
@@ -200,9 +192,9 @@ def replace(fname, creature, hash_number):
     color3 = creature.color_3
     hc3 = 'rgb(' + str(color3[0]) + ',' +  str(color3[1]) + ',' + str(color3[2]) + ')'
 
-    content = content.replace('#bebebe', hc1)
-    content = content.replace('#725af7', hc2)
-    content = content.replace('#6edaf4', hc3)
+    content = content.replace('#BEBEBE', hc1)
+    content = content.replace('#725AF7', hc2)
+    content = content.replace('#6EDAF4', hc3)
     f.close()
 
     new_f = open('static/generated/'+fname+str(hash_number)+".svg", 'w')
