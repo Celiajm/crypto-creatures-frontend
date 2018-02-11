@@ -1,48 +1,60 @@
-h1, h2 {
-    font-family: sans-serif;
-    color: Tomato;
+h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    color: GhostWhite;
     text-align: center;
-    background-color: Cyan;
 }
 body {
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
   width: 80%;
   padding-top:30px;
   padding-bottom:30px;
   font-size: 22px;
   margin: auto;
-  background-color: Tomato;
 }
 
 img {
-  max-width: 50vw;
-  max-height: 80vh;
+    position: relative;
+      float: left;
+      width:  300px;
+      height: 300px;
+      background-position: 50% 50%;
+      background-repeat:   no-repeat;
+      background-size:     cover;
 }
-/*
+
 .grid-container {
-    display: grid;
-    grid-column-gap: 50px;
-    background-color: Tomato;
-    grid-template-columns: auto auto auto;
-    padding-left: 10px;
+    grid-column-gap: 100px;
+    text-align: center;
 }
+
 .grid-item {
-    background-color: Cyan;
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    width: 200px;
-}*/
-
-.grid-container {
-    grid-column-gap: 50px;
-    background-color: Tomato;
-    text-align: center;
-}
-
-.grid-item {
-    background-color: Cyan;
+    border-radius: 25px;
     display: inline-block;
     width: 20%;
+    background-color: GhostWhite;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
 }
