@@ -24,11 +24,11 @@
     <h1>CryptoCreatures</h1>
     <h3>Where Cryptocurrency Meets Animal Trading Cards</h3>
     <img class='maincoin' src = "static/Coin.svg"/>
-    <div class="grid-container">
+    <div class="grid-container" >
         <h3>Your Creatures</h3>
       {% for animal in animals %}
       <a href="/token/{{ animal.sha }}">
-          <div class="grid-item">
+        <div class="grid-item" style="background-color: rgb{{ animal.bg_color }}">
             <img class='{{animal.animal_type}}' src= "{{ url_for( 'static', filename=animal.image) }}" />
           </div>
         </a>

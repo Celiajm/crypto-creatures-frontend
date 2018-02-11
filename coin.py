@@ -76,6 +76,7 @@ class CoinCreature:
 	 	self.color_1 = (hashfn[13]/2+128,hashfn[14]/2+128,hashfn[15]/2+128)
 	 	self.color_2 = (hashfn[16]/2+128,hashfn[17]/2+128,hashfn[18]/2+128)
 	 	self.color_3 = (hashfn[19]/2+128,hashfn[20]/2+128,hashfn[21]/2+128)
+	 	self.bg_color = (hashfn[10]/2+128,hashfn[9]/2+128,hashfn[8]/2+128)
                 self.image = "generated/" + self.animal_type + str(sha) + ".svg"
                 self.sha = sha
                 
