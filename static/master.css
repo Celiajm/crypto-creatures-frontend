@@ -2,7 +2,6 @@ h1, h2, h3 {
     font-family: 'Lato', sans-serif;
     color: Black;
     text-align: center;
-    text-shadow: 0px 0px 10px black;
 }
 body {
   font-family: 'Lato', sans-serif;
@@ -19,13 +18,13 @@ p {
 }
 
 img {
-  width:  400px;
+  width:  200%;
   height: 400px;
   position: relative;
   left: -50%;
 }
 
-.grid-container {
+.grid-container img {
     grid-column-gap: 100px;
     text-align: center;
 }
