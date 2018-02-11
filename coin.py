@@ -104,7 +104,7 @@ class CoinItem:
 
 	def __init__(self, hashfn):
 		self.item_type = self.type_picker(hashfn[20])
-		self.item_name = 0
+		self.item_name = self.name_picker(hashfn[21], self.item_type)
 
 	def type_picker(self, n):
 		return "food"
@@ -136,8 +136,19 @@ def test(hashfn):
 		animal_string += " eyes and "
 		animal_string += str(animal.color_1)
 		animal_string += " fur."
+		print animal_string
 
-	return animal_string
+
+        if item[0] == 2:
+                item = item[1]
+                item_string = "I am a "
+                item_string += str(item.item_type)
+                item_string += ". I am a "
+                item_string += str(item.item_name)
+                item_string += "."
+                print item_string
+
+	return 
 
 def gen_list():
 
