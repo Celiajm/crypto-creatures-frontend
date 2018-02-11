@@ -23,6 +23,11 @@ img {
   position: relative;
   left: -50%;
 }
+
+.grid-item img:hover {
+  transform: rotate(7deg);
+}
+
 .image-page{
   background: black;
 }
