@@ -159,6 +159,11 @@ def show_token(sha=None):
 	'#fff2db','#ffdfa4','#ffce75','#ffc04b','#ffaf1a','#fedadd','#fda2a9',
 	'#fg737d','#fb4a57','#fa192a']
 
+	items = ["Cake.svg", "Drumstick.svg","Ice_cream.svg"]
+	item_len = len(items)
+	for i in range(0, item_len):
+		items[i] = "/static/" + items[i]
+
 	print(coin[0])
 	if(coin[0] == 1):
 		replace(coin[1].animal_type, coin[1], sha)
