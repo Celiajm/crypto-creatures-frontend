@@ -3,7 +3,10 @@
 #200-256 animal, 22 numbers
 #
 import random
-import flask
+
+
+from flask import Flask
+app = Flask(__name__)
 
 class CoinGen:
 
@@ -122,6 +125,8 @@ def test(hashfn):
 
 	item = init_coin.item
 
+	animal_string = ""
+
 	if item[0] == 1:
 		animal = item[1]
 		animal_string = "I'm a "
@@ -131,9 +136,8 @@ def test(hashfn):
 		animal_string += " eyes and "
 		animal_string += str(animal.color_1)
 		animal_string += " fur."
-		print animal_string
 
-	return 
+	return animal_string
 
 def gen_list():
 
