@@ -3,8 +3,39 @@
   <title>Token</title>
     <link rel="stylesheet" type="text/css" href="/static/master.css">
   </head>
+  <style>
+    .grid-container {
+        display: grid;
+        grid-column-gap: 50px;
+        background-color: Tomato;
+        grid-template-columns: auto auto auto;
+        padding-left: 10px;
+    }
+    .grid-item {
+        background-color: Cyan;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+  </style>
+  <script>
+
+  </script>
   <body>
-    <h1>Token Show Page</h1>
+    <h1>CryptoCreatures</h1>
+    <h2>Where Cryptocurrency Meets Animal Trading Cards</h2>
+    <div class="grid-container">
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+      <div class="grid-item"><img src="/static/Deer.svg" /></div>
+    </div>
     <p>
     {% if coin[0] == 1 %}
       Animal type: {{ coin[1].animal_type }}

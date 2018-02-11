@@ -1,3 +1,13 @@
+h1 {
+    font-family: sans-serif;
+    color: Tomato;
+    text-align: center;
+}
+h2 {
+    font-family: sans-serif;
+    color: Tomato;
+    text-align: center;
+}
 body {
   font-family: sans-serif;
   width: 80%;
