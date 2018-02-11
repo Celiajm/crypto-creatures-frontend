@@ -26,6 +26,7 @@ class CoinGen:
 
 	 	self.item = which_item(hashfn[10], hashfn)
 
+# octopus is now the most rare
 class CoinCreature:
 
 	def __init__(self, hashfn):
@@ -49,13 +50,13 @@ class CoinCreature:
 		elif(n <= 180):
 			return "panda"
 		elif(n <= 200):
-			return "octopus"
+			return "deer"
 		elif(n <= 220):
 			return "dalmation"
-		elif(n <= 250):
-			return "deer"
-		else:
+		elif(n <= 253):
 			return "hedgehog"
+		else:
+			return "octopus"
 
 	def eye_type(self, n):
 
