@@ -1,6 +1,6 @@
 h1, h2, h3 {
     font-family: 'Lato', sans-serif;
-    color: GhostWhite;
+    color: Black;
     text-align: center;
     text-shadow: 0px 0px 10px black;
 }
@@ -11,6 +11,11 @@ body {
   padding-bottom:30px;
   font-size: 22px;
   margin: auto;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    color: Black;
 }
 
 img {
