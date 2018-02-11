@@ -3,10 +3,7 @@
 #200-256 animal, 22 numbers
 #
 import random
-
-
-from flask import Flask
-app = Flask(__name__)
+import flask 
 
 class CoinGen:
 
