@@ -34,9 +34,9 @@ class CoinCreature:
 
 	 	self.animal_type =  self.animal_type(hashfn[11])
 	 	self.eye = self.eye_type(hashfn[12])
-	 	self.color_1 = self.color_picker(hashfn[13])
-	 	self.color_2 = self.color_picker(hashfn[14])
-	 	self.color_3 = self.color_picker(hashfn[15])
+	 	self.color_1 = (hashfn[13],hashfn[14],hashfn[15])
+	 	self.color_2 = (hashfn[16],hashfn[17],hashfn[18])
+	 	self.color_3 = (hashfn[19],hashfn[20],hashfn[21])
 
 	def animal_type(self, n):
 
@@ -70,28 +70,6 @@ class CoinCreature:
 		else:
 			return "angry"
 
-	def color_picker(self, n):
-
-		if (n <= 32):
-			return "purple"
-		elif (n <= 65):
-			return "blue"
-		elif (n <= 99):
-			return "green"
-		elif (n <= 149):
-			return "yellow"
-		elif (n <= 199):
-			return "orange"
-		elif (n <= 224):
-			return "red"
-		elif (n <= 240):
-			return "bronze"
-		elif (n <= 249):
-			return "silver"
-		else:
-			return "gold"
-
-
 class Coin:
 
 	def __init__(self):
@@ -100,8 +78,8 @@ class Coin:
 class CoinItem:
 
 	def __init__(self, hashfn):
-		self.item_type = self.type_picker(hashfn[20])
-		self.item_name = self.name_picker(hashfn[21], self.item_type)
+		self.item_type = self.type_picker(hashfn[22])
+		self.item_name = self.name_picker(hashfn[23], self.item_type)
 
 	def type_picker(self, n):
 		return "food"
@@ -135,15 +113,14 @@ def test(hashfn):
 		animal_string += " fur."
 		print animal_string
 
-
-        if item[0] == 2:
-                item = item[1]
-                item_string = "I am a "
-                item_string += str(item.item_type)
-                item_string += ". I am a "
-                item_string += str(item.item_name)
-                item_string += "."
-                print item_string
+	if item[0] == 2:
+		item = item[1]
+        item_string = "I am a "
+        item_string += str(item.item_type)
+        item_string += ". I am a "
+        item_string += str(item.item_name)
+        item_string += "."
+        print item_string
 
 	return 
 
@@ -163,6 +140,7 @@ app = flask.Flask(__name__)
 @app.route('/token/<sha>')
 def show_token(sha=None):
     coin = CoinGen(sha).item
+    print coin[0]
     return flask.render_template("token.html", coin=coin)
 
 
