@@ -37,7 +37,8 @@ class CoinCreature:
 	 	self.color_1 = (hashfn[13]/2+128,hashfn[14]/2+128,hashfn[15]/2+128)
 	 	self.color_2 = (hashfn[16]/2+128,hashfn[17]/2+128,hashfn[18]/2+128)
 	 	self.color_3 = (hashfn[19]/2+128,hashfn[20]/2+128,hashfn[21]/2+128)
-	 	self.image = self.animal_type + str(sha) + ".svg"
+                self.image = "generated/" + self.animal_type + str(sha) + ".svg"
+                self.sha = sha
 
 	def animal_type(self, n):
 
@@ -45,8 +46,8 @@ class CoinCreature:
 			return "bear"
 		elif(n <= 110):
 			return "bunny"
-		elif(n <= 140):
-			return "squirrel"
+		# elif(n <= 140):
+		# 	return "squirrel"
 		elif(n <= 160):
 			return "fox"
 		elif(n <= 180):
@@ -55,10 +56,10 @@ class CoinCreature:
 			return "deer"
 		elif(n <= 220):
 			return "dalmatian"
-		elif(n <= 253):
-			return "hedgehog"
+		# elif(n <= 253):
+		# 	return "octopus"
 		else:
-			return "octopus"
+			return "hedgehog"
 
 	def eye_type(self, n):
 
@@ -156,13 +157,20 @@ def show_token(sha=None):
 	if(coin[0] == 1):
 		replace(coin[1].animal_type, coin[1], sha)
 		print coin[1].image
-	file_name = 'static/' + coin[1].animal_type + str(sha) + ".svg"
+	# file_name = 'static/' + coin[1].animal_type + str(sha) + ".svg"
 	return flask.render_template("token.html", coin=coin)
 
 @app.route("/")
 def space_index():
-    coin = CoinGen(gen_list(),sha=None).item
-    return flask.render_template("index.html", coin=coin)
+    animals = []
+    for sha in open("./ledger.txt").readlines():
+        sha = sha[:-1]
+        animal = CoinGen(sha_to_list(sha), sha).item
+	if(animal[0] == 1):
+            replace(animal[1].animal_type, animal[1], sha)
+            print animal[1].image
+            animals.append(animal[1])
+    return flask.render_template("index.html", animals=animals)
 
 @app.route('/static/<path:path>')
 def serve_static_files(path):
@@ -193,7 +201,7 @@ def replace(fname, creature, hash_number):
     content = content.replace('#6edaf4', hc3)
     f.close()
     
-    new_f = open('static/'+fname+str(hash_number)+".svg", 'w')
+    new_f = open('static/generated/'+fname+str(hash_number)+".svg", 'w')
 
     new_f.write(content)
     new_f.close()
