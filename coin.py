@@ -16,18 +16,18 @@ class CoinGen:
 		 	#221-256 item
 
 	 		if (n <= 100):
-	 			print "I'm a Coin."
+	 			print("I'm a Coin.")
 	 			return (0, Coin())
 	 		elif (n <= 220):
-	 			print "I'm a Creature."
+	 			print("I'm a Creature.")
 	 			return (1, CoinCreature(hashfn))
 	 		else:
-	 			print "I'm an Item."
+	 			print("I'm an Item.")
 	 			return (2, CoinItem(hashfn))
 
 	 	self.item = which_item(hashfn[10], hashfn)
-	 	print hashfn
-	 	print hashfn[10]
+	 	print(hashfn)
+	 	print(hashfn[10])
 
 # octopus is now the most rare
 class CoinCreature:
@@ -113,7 +113,7 @@ def test(hashfn):
 		animal_string += " eyes and "
 		animal_string += str(animal.color_1)
 		animal_string += " fur."
-		print animal_string
+		print(animal_string)
 
 	if item[0] == 2:
 		item = item[1]
@@ -122,7 +122,7 @@ def test(hashfn):
         item_string += ". I am a "
         item_string += str(item.item_name)
         item_string += "."
-        print item_string
+        print(item_string)
 
 	return 
 
@@ -153,7 +153,7 @@ app = flask.Flask(__name__)
 def show_token(sha=None):
 	byte_list = sha_to_list(sha)
 	coin = CoinGen(byte_list).item
-	print coin[0]
+	print(coin[0])
 	return flask.render_template("token.html", coin=coin)
 
 
