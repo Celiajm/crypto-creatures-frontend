@@ -25,8 +25,17 @@ p {
 }
 
 .maincoin {
+  position: relative;
+  top: 0px;
   width: 300px;
   margin-left: calc(50% - 150px);
+  transition: filter 0.3s ease-out, top 0.3s ease-out;
+}
+
+.maincoin:hover {
+  top: -15px;
+  -webkit-filter: drop-shadow( 0px 10px 10px #555 ); 
+  filter: drop-shadow( 0px 10px 10px #555 );
 }
 
 .grid-item {
