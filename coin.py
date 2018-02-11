@@ -148,5 +148,20 @@ def show_token(sha=None):
 def serve_static_files(path):
     return send_from_directory('static', path)
 
+def replace(fname):
 
-
+    f = open(fname, 'r')
+    content = f.read()
+    
+    color1 = (hashfn[13],hashfn[14],hashfn[15])
+    color2= (hashfn[16],hashfn[17],hashfn[18])
+    color3= (hashfn[19],hashfn[20],hashfn[21])
+    
+    content = content.replace('#bebebe', color1)
+    content = content.replace('#725af7', color3)
+    content = content.replace('#6edaf4', color2)
+    f.close()
+    
+    new_f = open('new_'+fname, 'w')
+    new_f.write(content)
+    new_f.close()
